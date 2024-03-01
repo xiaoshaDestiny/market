@@ -13,7 +13,7 @@ public class GoodDoctorFacade {
     public static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
 
     private static String PUSH_DISEASE_TYPE_URL = "http://www.ynhaoyisheng.com:8088/api/rotaterecord/";
-
+    private static String TOKEN = "";
 
     public Boolean pushDiseaseType(PersonDTO personDTO, DiseaseTypeDTO diseaseTypeDTO) {
         String createParamJSON = "{\"specIn\":{\"id\":"
