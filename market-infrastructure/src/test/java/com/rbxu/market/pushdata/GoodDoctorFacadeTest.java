@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.rbxu.market.pushdata.dto.DiseaseTypeDTO;
 import com.rbxu.market.pushdata.dto.PersonDTO;
+import com.rbxu.market.pushdata.dto.ShouShuDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.junit.Test;
@@ -34,6 +35,109 @@ public class GoodDoctorFacadeTest {
         return persons;
     }
 
+
+
+    @Test
+    public void testPushShoushuData() {
+        List<ShouShuDTO> shoushuList = Lists.newArrayList();
+
+        //泌尿外科 585  2022-07-01 ~ 2022-07-31   2022-07-14T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("585", "2354", "膀胱造瘘术", "2022-07-14T16:00:00.000Z", false, 1));
+        shoushuList.add(new ShouShuDTO("585", "2355", "精索静脉高位结扎术", "2022-07-15T16:00:00.000Z", false, 1));
+        shoushuList.add(new ShouShuDTO("585", "2356", "睾丸鞘膜翻转术/包皮环切术", "2022-07-16T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("585", "2357", "膀胱全切除术", "2022-07-17T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("585", "2358", "肾上腺肿瘤切除", "2022-07-18T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("585", "2359", "经尿道前列腺肿瘤电切术", "2022-07-19T16:00:00.000Z", false, 3));
+        shoushuList.add(new ShouShuDTO("585", "2360", "经尿道前列腺电切术(TURP)", "2022-07-20T16:00:00.000Z", false, 5));
+        shoushuList.add(new ShouShuDTO("585", "2361", "胃切除术", "2022-07-21T16:00:00.000Z", false, 2));
+
+        //572 心胸外科  2022-10-01 ~ 2022-11-30   2022-10-10T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("572", "2350", "食管、贲门癌手术", "2022-10-10T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("572", "2351", "先心病/瓣膜病手术", "2022-10-11T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("572", "2352", "肺叶切除术", "2022-10-12T16:00:00.000Z", false, 5));
+        shoushuList.add(new ShouShuDTO("572", "2353", "冠脉搭桥手术", "2022-10-13T16:00:00.000Z", false, 1));
+        shoushuList.add(new ShouShuDTO("572", "3084", "胸腔穿刺术", "2022-10-14T16:00:00.000Z", false, 4));
+        shoushuList.add(new ShouShuDTO("572", "3085", "开、关胸术", "2022-10-15T16:00:00.000Z", false, 3));
+        shoushuList.add(new ShouShuDTO("572", "3086", "胸腔闭式引流术", "2022-10-16T16:00:00.000Z", false, 3));
+
+        //593 神经内科  2022-12-01 ~ 2023-02-28   2022-12-10T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("593", "2367", "腰椎穿刺术", "2022-12-10T16:00:00.000Z", false, 5));
+
+        //582 普通外科  2023-03-01 ~ 2023-08-31   2023-03-10T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("582", "2340", "疝修补术", "2023-03-10T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("582", "2341", "体表肿物切除", "2023-03-11T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("582", "2342", "阑尾切除术", "2023-03-12T16:00:00.000Z", false, 5));
+        shoushuList.add(new ShouShuDTO("582", "2343", "手术开、关腹操作", "2023-03-13T16:00:00.000Z", false, 5));
+
+        //608 骨科 2022-04-01 ~ 2022-06-30   2022-04-10T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("608", "2344", "四肢外伤的清创、缝合", "2022-04-10T16:00:00.000Z", false, 5));
+        shoushuList.add(new ShouShuDTO("608", "2345", "骨折的切开复位内固定", "2022-04-11T16:00:00.000Z", false, 3));
+        shoushuList.add(new ShouShuDTO("608", "2346", "腰椎或颈椎手术", "2022-04-12T16:00:00.000Z", false, 3));
+        shoushuList.add(new ShouShuDTO("608", "2347", "人工关节置换/四肢常见的骨及软组织肿瘤手术", "2022-04-13T16:00:00.000Z", false, 3));
+        shoushuList.add(new ShouShuDTO("608", "2348", "常见部位骨折的手法复位、支具、石膏外固定", "2022-04-14T16:00:00.000Z", false, 5));
+        shoushuList.add(new ShouShuDTO("608", "2349", "常见部位关节脱位的手法复位", "2022-04-15T16:00:00.000Z", false, 2));
+        shoushuList.add(new ShouShuDTO("608", "2952", "常见部位的骨牵引", "2022-04-16T16:00:00.000Z", false, 1));
+
+        //594  神经外科  2023-09-01 ~ 2024-08-31   2023-09-10T16:00:00.000Z
+        shoushuList.add(new ShouShuDTO("594", "2368", "头皮裂伤清创维合(完成)", "2023-09-10T16:00:00.000Z", true, 5));
+        shoushuList.add(new ShouShuDTO("594", "2369", "颅脑外伤手术(参与)", "2023-09-11T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2370", "颅脑肿瘤手术(参与)", "2023-09-12T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2371", "脑血管病开颅手术(参与)", "2023-09-13T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2372", "脊柱脊髓病变手术(参与)", "2023-09-14T16:00:00.000Z", false, 6));
+        shoushuList.add(new ShouShuDTO("594", "2373", "头皮裂伤清创维合(门诊参与)", "2023-09-15T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2389", "头皮裂伤清创维合(完成)", "2023-09-16T16:00:00.000Z", true, 5));
+        shoushuList.add(new ShouShuDTO("594", "2390", "颅脑外伤手术(参与)", "2023-09-17T16:00:00.000ZZ", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2391", "颅脑肿瘤手术(参与)", "2023-09-18T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2392", "脑血管病开颅手术(参与)", "2023-09-19T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2393", "脊柱脊髓病变手术(参与)", "2023-09-20T16:00:00.000Z", false, 6));
+        shoushuList.add(new ShouShuDTO("594", "2394", "头皮裂伤清创维合(门诊参与)", "2023-09-21T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2395", "头皮裂伤清创维合(完成)", "2023-09-22T16:00:00.000Z", true, 5));
+        shoushuList.add(new ShouShuDTO("594", "2396", "颅脑外伤手术(参与)", "2023-09-23T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2397", "颅脑肿瘤手术(参与)", "2023-09-24T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2398", "脑血管病开颅手术(参与)", "2023-09-25T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2399", "脊柱脊髓病变手术(参与)", "2023-09-26T16:00:00.000Z", false, 6));
+        shoushuList.add(new ShouShuDTO("594", "2400", "头皮裂伤清创维合(门诊参与)", "2023-09-27T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2401", "头皮裂伤清创维合(完成)", "2023-09-11T16:00:00.000Z", true, 5));
+        shoushuList.add(new ShouShuDTO("594", "2402", "颅脑外伤手术(参与)", "2023-09-12T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2403", "颅脑肿瘤手术(参与)", "2023-09-13T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2404", "脑血管病开颅手术(参与)", "2023-09-14T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2405", "脊柱脊髓病变手术(参与)", "2023-09-15T16:00:00.000Z", false, 6));
+        shoushuList.add(new ShouShuDTO("594", "2406", "头皮裂伤清创维合(门诊参与)", "2023-09-16T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2407", "头皮裂伤清创缝合(完成)", "2023-09-17T16:00:00.000Z", true, 5));
+        shoushuList.add(new ShouShuDTO("594", "2408", "颅脑外伤手术(参与)", "2023-09-18T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2409", "颅脑肿瘤手术(参与)", "2023-09-19T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2410", "脑血管病开颅手术(参与)", "2023-09-10T16:00:00.000Z", false, 10));
+        shoushuList.add(new ShouShuDTO("594", "2411", "脊柱脊髓病变手术(参与)", "2023-09-10T16:00:00.000Z", false, 6));
+        shoushuList.add(new ShouShuDTO("594", "2412", "头皮裂伤清创维合(门诊参与)", "2023-09-10T16:00:00.000Z", false, 10));
+    }
+
+
+    @Test
+    public void testPushShoushuData1() {
+        // 429 个
+        List<PersonDTO> persons = getAllPerson();
+        List<ShouShuDTO> shoushuList = Lists.newArrayList();
+
+
+        int personIndex = 100;
+        for (ShouShuDTO dto : shoushuList) {
+            for (int i = 0; i < dto.getNum(); i++) {
+                PersonDTO person = persons.get(personIndex);
+
+                if (dto.getZhudao()) {
+                    goodDoctorFacade.pushZhudaoShoushuData(dto.getKsId(), dto.getShoushuId(), dto.getShoushuName(), person.getId(), person.getName(), dto.getDate());
+                } else {
+                    goodDoctorFacade.pushZhushouShoushuData(dto.getKsId(), dto.getShoushuId(), dto.getShoushuName(), person.getId(), person.getName(), dto.getDate());
+                }
+                personIndex ++;
+            }
+        }
+        log.info("index is {}", personIndex);
+    }
+
+
+
+
     @Test
     public void testPushData() {
         List<PersonDTO> persons = getAllPerson();
@@ -47,13 +151,13 @@ public class GoodDoctorFacadeTest {
 
 
         int personIndex = 200;
-        for (DiseaseTypeDTO diseaseTypeDTO : bzList) {
-            for (int i = 0; i < 1; i++) {
-                PersonDTO person = persons.get(personIndex);
-                goodDoctorFacade.pushDiseaseType(person, diseaseTypeDTO);
-                personIndex ++;
-            }
-        }
+//        for (DiseaseTypeDTO diseaseTypeDTO : bzList) {
+//            for (int i = 0; i < 1; i++) {
+//                PersonDTO person = persons.get(personIndex);
+//                goodDoctorFacade.pushDiseaseType(person, diseaseTypeDTO);
+//                personIndex ++;
+//            }
+//        }
         log.info("index is {}", personIndex);
     }
 }
