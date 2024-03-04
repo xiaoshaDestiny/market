@@ -11,24 +11,29 @@
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.deploy.skip>true</maven.deploy.skip>
+
+        <!--架构依赖-->
         <cola.components.version>4.3.2</cola.components.version>
         <spring-boot.version>2.7.2</spring-boot.version>
         <mybatis-starter.version>2.2.2</mybatis-starter.version>
 
+        <!--服务工具包依赖-->
         <okhttp.version>2.7.5</okhttp.version>
         <guava.version>30.1-jre</guava.version>
     </properties>
 
     <modules>
         <module>market-client</module>
+        <module>market-component</module>
         <module>market-adapter</module>
-        <module>market-app</module>
+        <module>market-application</module>
         <module>market-domain</module>
         <module>market-infrastructure</module>
+        <module>market-facade</module>
         <module>start</module>
     </modules>
 
@@ -47,7 +52,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--Project modules-->
             <dependency>
                 <groupId>com.rbxu.cola.market</groupId>
                 <artifactId>market-adapter</artifactId>
@@ -60,7 +64,12 @@
             </dependency>
             <dependency>
                 <groupId>com.rbxu.cola.market</groupId>
-                <artifactId>market-app</artifactId>
+                <artifactId>market-component</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rbxu.cola.market</groupId>
+                <artifactId>market-application</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -73,7 +82,11 @@
                 <artifactId>market-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <!--Project modules End-->
+            <dependency>
+                <groupId>com.rbxu.cola.market</groupId>
+                <artifactId>market-facade</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
@@ -95,27 +108,19 @@
                 <version>${mybatis-starter.version}</version>
             </dependency>
 
-            <!--Validation API-->
-            <!--
-                - javax.validation:javax.validation
-                - org.hibernate.validator:hibernate-validator
-                - org.glassfish:jakarta.el
-                are declared in spring-boot-dependencies
-            -->
+            <!--Validation-->
             <dependency>
                 <groupId>javax.el</groupId>
                 <artifactId>javax.el-api</artifactId>
                 <version>3.0.0</version>
             </dependency>
-            <!--Validation API End -->
 
-            <!-- Misc -->
+            <!-- fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>1.2.83</version>
             </dependency>
-            <!-- Misc End -->
 
             <!-- okhttp -->
             <dependency>
@@ -123,11 +128,19 @@
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
             </dependency>
+
+            <!-- guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
 
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.12.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
