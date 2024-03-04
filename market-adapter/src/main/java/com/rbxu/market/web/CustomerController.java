@@ -2,18 +2,21 @@ package com.rbxu.market.web;
 
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.Response;
-import com.rbxu.market.api.CustomerServiceI;
-import com.rbxu.market.dto.CustomerAddCmd;
-import com.rbxu.market.dto.CustomerListByNameQry;
-import com.rbxu.market.dto.data.CustomerDTO;
+import com.rbxu.market.application.CustomerApplicationService;
+import com.rbxu.market.dto.CustomerCreateDTO;
+import com.rbxu.market.dto.customer.CustomerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CustomerController {
 
+    private final CustomerApplicationService customerApplicationService;
+
     @Autowired
-    private CustomerServiceI customerService;
+    public CustomerController(CustomerApplicationService customerApplicationService) {
+        this.customerApplicationService = customerApplicationService;
+    }
 
     @GetMapping(value = "/helloworld")
     public String helloWorld(){
@@ -21,14 +24,12 @@ public class CustomerController {
     }
 
     @GetMapping(value = "/customer")
-    public MultiResponse<CustomerDTO> listCustomerByName(@RequestParam(required = false) String name){
-        CustomerListByNameQry customerListByNameQry = new CustomerListByNameQry();
-        customerListByNameQry.setName(name);
-        return customerService.listByName(customerListByNameQry);
+    public MultiResponse<CustomerResponse> listCustomerByName(@RequestParam(required = true) String name){
+        return customerApplicationService.listByName(name);
     }
 
     @PostMapping(value = "/customer")
-    public Response addCustomer(@RequestBody CustomerAddCmd customerAddCmd){
-        return customerService.addCustomer(customerAddCmd);
+    public Response addCustomer(@RequestBody CustomerCreateDTO customerCreateDTO){
+        return customerApplicationService.create(customerCreateDTO);
     }
 }

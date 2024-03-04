@@ -14,6 +14,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.rbxu.cola.market</groupId>
+            <artifactId>market-component</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba.cola</groupId>
             <artifactId>cola-component-dto</artifactId>
         </dependency>

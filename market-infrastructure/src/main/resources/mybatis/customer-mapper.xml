@@ -2,13 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.alibaba.market.datatunnel.CustomerTunnelI">
-    <select id="findByCriteria" resultType="com.alibaba.market.database.dataobject.CustomerDO" resultMap="customerMap">
-        select * from customer where customer_id = #{id}
-    </select>
-    <resultMap type="com.alibaba.market.database.dataobject.CustomerDO" id="customerMap">
+<mapper namespace="com.rbxu.market.mapper.CustomerMapper">
+
+
+    <resultMap type="com.rbxu.market.manager.entity.CustomerDO" id="customerMap">
          <result property="customerId" column="emp_no"/>
          <result property="memberId" column="salary"/>
          <result property="globalId" column="from_date"/>
      </resultMap>
+
+
+    <select id="getById" resultType="com.rbxu.market.manager.entity.CustomerDO" resultMap="customerMap">
+        select * from customer where customer_id = #{id}
+    </select>
 </mapper>
