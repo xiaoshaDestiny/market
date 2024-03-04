@@ -35,9 +35,7 @@ public class GoodDoctorSpiImplTest{
         return persons;
     }
 
-
-    @Test
-    public void testPushMainSurgicalOperationData() {
+    private void allData() {
         List<OperationDTO> shoushuList = Lists.newArrayList();
 
         //泌尿外科 585  2022-07-01 ~ 2022-07-31   2022-07-14T16:00:00.000Z
@@ -108,6 +106,14 @@ public class GoodDoctorSpiImplTest{
         shoushuList.add(new OperationDTO("594", "2410", "脑血管病开颅手术(参与)", "2023-09-10T16:00:00.000Z", false, 10));
         shoushuList.add(new OperationDTO("594", "2411", "脊柱脊髓病变手术(参与)", "2023-09-10T16:00:00.000Z", false, 6));
         shoushuList.add(new OperationDTO("594", "2412", "头皮裂伤清创维合(门诊参与)", "2023-09-10T16:00:00.000Z", false, 10));
+    }
+
+
+    @Test
+    public void testPushMainSurgicalOperationData() {
+        List<OperationDTO> shoushuList = Lists.newArrayList();
+        shoushuList.add(new OperationDTO("594", "2399", "脊柱脊髓病变手术(参与)", "2023-09-26T16:00:00.000Z", false, 1));
+        shoushuList.add(new OperationDTO("594", "2401", "头皮裂伤清创维合(完成)", "2023-09-11T16:00:00.000Z", true, 1));
 
         // 429 个
         List<PersonDTO> persons = getAllPerson();

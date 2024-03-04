@@ -14,7 +14,6 @@ public class CustomerConvert {
 
         CustomerModel customerModel = new CustomerModel();
         customerModel.setCustomerId(customerDO.getCustomerId());
-        // todo
         return customerModel;
     }
 
