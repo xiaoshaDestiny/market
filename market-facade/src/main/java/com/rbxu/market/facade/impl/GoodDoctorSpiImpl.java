@@ -7,8 +7,10 @@ import com.rbxu.market.domain.spi.dto.gooddoctor.PersonDTO;
 import com.rbxu.market.facade.client.GoodDoctorClient;
 import com.rbxu.market.facade.convert.GoodsDoctorConvert;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 @Slf4j
+@Service
 public class GoodDoctorSpiImpl implements GoodDoctorSpi {
     private static final String PUSH_DISEASE_TYPE_URL = "http://www.ynhaoyisheng.com:8088/api/rotaterecord/";
     private static final String PUSH_OPERATION_DATA_URL = "http://www.ynhaoyisheng.com:8088/api/operationrecord/";

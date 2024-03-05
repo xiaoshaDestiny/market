@@ -1,9 +1,7 @@
 package com.rbxu.market.application;
 
 import com.alibaba.cola.dto.Response;
-import com.rbxu.market.api.CustomerApi;
 import com.rbxu.market.dto.CustomerCreateDTO;
-import com.rbxu.market.dto.customer.CustomerAddRequest;
 import com.rbxu.market.enums.ErrorCodeEnum;
 import org.junit.Assert;
 import org.junit.Before;

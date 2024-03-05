@@ -8,16 +8,17 @@ import com.rbxu.market.manager.entity.CustomerDO;
 import com.rbxu.market.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+@Service("customerManager")
 public class CustomerManagerImpl implements CustomerManager {
 
     @Autowired
     private CustomerMapper customerMapper;
 
     public CustomerModel getByById(String customerId) {
-        CustomerDO customerDO = customerMapper.getById(customerId);
-        return CustomerConvert.toCustomer(customerDO);
+        return null;
+//        CustomerDO customerDO = customerMapper.getById(customerId);
+//        return CustomerConvert.toCustomer(customerDO);
     }
 }

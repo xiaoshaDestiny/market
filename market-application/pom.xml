@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.rbxu.cola.market</groupId>
         <artifactId>market-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${project.version}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -15,15 +15,22 @@
     <dependencies>
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
-            <artifactId>market-client</artifactId>
+            <artifactId>market-component-common</artifactId>
+            <scope>true</scope>
         </dependency>
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
-            <artifactId>market-component</artifactId>
+            <artifactId>market-component-client</artifactId>
         </dependency>
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
-            <artifactId>market-infrastructure</artifactId>
+            <artifactId>market-domain-core</artifactId>
+            <scope>true</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.rbxu.cola.market</groupId>
+            <artifactId>market-domain-adapter</artifactId>
+            <scope>true</scope>
         </dependency>
 
         <dependency>
@@ -41,6 +48,10 @@
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.el</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -25,7 +25,7 @@ public class CustomerConvert {
     public static CustomerModel toCustomerModel(CustomerAddRequest request) {
         CustomerModel model = new CustomerModel();
         model.setCustomerId(request.getCustomerId());
-        model.setCompanyType(request.getCompanyType());
+        model.setCompanyType(CompanyType.valueOf(request.getCompanyType()));
         model.setMemberId(request.getMemberId());
         model.setSourceType(SourceType.valueOf(request.getSource()));
         return model;

@@ -5,6 +5,7 @@ import com.alibaba.cola.dto.Response;
 import com.google.common.collect.Lists;
 import com.rbxu.market.application.CustomerApplicationService;
 import com.rbxu.market.application.convert.CustomerConvert;
+import com.rbxu.market.domain.manager.CustomerManager;
 import com.rbxu.market.domain.model.CustomerModel;
 import com.rbxu.market.domain.service.CustomerDomainService;
 import com.rbxu.market.dto.CustomerCreateDTO;

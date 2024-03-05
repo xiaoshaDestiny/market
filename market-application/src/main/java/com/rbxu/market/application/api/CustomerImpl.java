@@ -27,7 +27,10 @@ public class CustomerImpl implements CustomerApi {
     @Resource
     private CustomerDomainService customerDomainService;
 
+
+
     public Response addCustomer(CustomerAddRequest customerAddRequest) {
+
         CustomerModel customerModel = CustomerConvert.toCustomerModel(customerAddRequest);
         Boolean b = customerDomainService.create(customerModel);
         return Response.buildSuccess();

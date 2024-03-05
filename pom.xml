@@ -5,11 +5,12 @@
 
     <groupId>com.rbxu.cola.market</groupId>
     <artifactId>market-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${project.version}</version>
     <packaging>pom</packaging>
     <name>market</name>
 
     <properties>
+        <project.version>2024-03-05-DEV</project.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,11 +43,14 @@
     </properties>
 
     <modules>
-        <module>market-client</module>
-        <module>market-component</module>
         <module>market-adapter</module>
         <module>market-application</module>
+        <module>market-component</module>
+        <module>market-component/market-component-client</module>
+        <module>market-component/market-component-common</module>
         <module>market-domain</module>
+        <module>market-domain/market-domain-core</module>
+        <module>market-domain/market-domain-adapter</module>
         <module>market-infrastructure</module>
         <module>market-facade</module>
         <module>start</module>
@@ -74,12 +78,17 @@
             </dependency>
             <dependency>
                 <groupId>com.rbxu.cola.market</groupId>
-                <artifactId>market-client</artifactId>
+                <artifactId>market-component</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.rbxu.cola.market</groupId>
-                <artifactId>market-component</artifactId>
+                <artifactId>market-component-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rbxu.cola.market</groupId>
+                <artifactId>market-component-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -94,6 +103,16 @@
             </dependency>
             <dependency>
                 <groupId>com.rbxu.cola.market</groupId>
+                <artifactId>market-domain-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rbxu.cola.market</groupId>
+                <artifactId>market-domain-adapter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rbxu.cola.market</groupId>
                 <artifactId>market-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -102,7 +121,6 @@
                 <artifactId>market-facade</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba.cola</groupId>
                 <artifactId>cola-components-bom</artifactId>
