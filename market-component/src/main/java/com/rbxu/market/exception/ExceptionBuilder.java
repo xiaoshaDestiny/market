@@ -2,7 +2,6 @@ package com.rbxu.market.exception;
 
 import com.alibaba.cola.exception.BizException;
 import com.rbxu.market.enums.ErrorCodeEnum;
-
 import java.text.MessageFormat;
 
 public class ExceptionBuilder {

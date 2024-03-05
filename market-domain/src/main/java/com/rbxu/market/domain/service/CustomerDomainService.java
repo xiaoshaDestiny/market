@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerDomainService {
+
     private final CustomerManager customerManager;
 
     @Autowired
@@ -16,6 +17,10 @@ public class CustomerDomainService {
 
     public Boolean create(CustomerModel customerModel) {
         return Boolean.TRUE;
+    }
+
+    public CustomerModel getById(String customerId) {
+        return customerManager.getByById(customerId);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.rbxu.market.facade.client;
 
-import com.alibaba.cola.exception.BizException;
 import com.rbxu.market.enums.ErrorCodeEnum;
 import com.rbxu.market.exception.ExceptionBuilder;
 import com.squareup.okhttp.*;

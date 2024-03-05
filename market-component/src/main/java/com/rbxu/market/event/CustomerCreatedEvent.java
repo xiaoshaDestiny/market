@@ -1,12 +1,10 @@
 package com.rbxu.market.event;
 
-/**
- * CustomerCreatedEvent
- *
- * @author Frank Zhang
- * @date 2019-01-04 10:32 AM
- */
-public class CustomerCreatedEvent{
+import java.io.Serializable;
+
+public class CustomerCreatedEvent implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String customerId;
 

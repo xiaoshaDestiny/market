@@ -1,8 +1,5 @@
 package com.rbxu.market.enums;
 
-import lombok.Getter;
-
-@Getter
 public enum ErrorCodeEnum {
     SYSTEM_ERROR("SYSTEM_ERROR", "系统异常!"),
     PARAM_IS_NULL("PARAM_IS_NULL", "参数为空!"),
@@ -18,4 +15,11 @@ public enum ErrorCodeEnum {
         this.errDesc = errDesc;
     }
 
+    public String getErrCode() {
+        return errCode;
+    }
+
+    public String getErrDesc() {
+        return errDesc;
+    }
 }
