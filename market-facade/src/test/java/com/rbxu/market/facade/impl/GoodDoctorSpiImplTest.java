@@ -25,7 +25,7 @@ public class GoodDoctorSpiImplTest{
         Set<String> ids = Sets.newHashSet();
         items.stream().forEach(key -> {
             String[] split = key.split("_");
-            if (split.length == 2 && NumberUtils.isNumber(split[0])) {
+            if (split.length == 2 && NumberUtils.isCreatable(split[0])) {
                 if (!ids.contains(split[0])) {
                     ids.add(split[0]);
                     persons.add(new PersonDTO(split[0], split[1]));

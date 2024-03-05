@@ -4,7 +4,6 @@ import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
 import com.rbxu.market.domain.spi.TenantSpi;
-import com.rbxu.market.mapper.ProjectMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

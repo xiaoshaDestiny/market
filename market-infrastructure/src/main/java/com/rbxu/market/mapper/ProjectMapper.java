@@ -6,5 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProjectMapper {
 
-    Boolean create(ProjectDO projectDO);
+    //Boolean create(ProjectDO projectDO);
+
+    ProjectDO getById(Long id);
+
 }

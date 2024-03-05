@@ -2,7 +2,6 @@ package com.rbxu.market.manager.impl;
 
 import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
-import com.rbxu.market.domain.model.TenantModel;
 import com.rbxu.market.manager.convert.ProjectConvert;
 import com.rbxu.market.manager.entity.ProjectDO;
 import com.rbxu.market.mapper.ProjectMapper;

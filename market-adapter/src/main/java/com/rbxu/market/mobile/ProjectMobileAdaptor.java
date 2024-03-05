@@ -7,5 +7,5 @@ package com.rbxu.market.mobile;
  * @author Frank Zhang
  * @date 2020-10-27 8:04 PM
  */
-public class CustomerMobileAdaptor {
+public class ProjectMobileAdaptor {
 }
