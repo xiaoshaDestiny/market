@@ -2,6 +2,7 @@ package com.rbxu.market.manager.impl;
 
 import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
+import com.rbxu.market.domain.spi.TenantSpi;
 import com.rbxu.market.manager.convert.ProjectConvert;
 import com.rbxu.market.manager.entity.ProjectDO;
 import com.rbxu.market.mapper.ProjectMapper;
@@ -15,6 +16,7 @@ public class ProjectManagerImpl implements ProjectManager {
 
     @Resource
     private ProjectMapper projectMapper;
+
 
     public static ProjectDO projectDO = new ProjectDO();
 

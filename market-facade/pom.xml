@@ -21,11 +21,13 @@
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
             <artifactId>market-component-common</artifactId>
+            <scope>true</scope>
         </dependency>
         <dependency>
-            <groupId>com.rbxu.cola.market</groupId>
-            <artifactId>market-component-client</artifactId>
+            <groupId>com.alibaba.cola</groupId>
+            <artifactId>cola-component-exception</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

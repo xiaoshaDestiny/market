@@ -21,6 +21,7 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
     @Resource
     private ProjectDomainService projectDomainService;
 
+
     @Override
     public SingleResponse<Boolean> createProject(ProjectModifyDTO projectModifyDTO) {
         if (Objects.isNull(projectModifyDTO.getTenantId())) {
