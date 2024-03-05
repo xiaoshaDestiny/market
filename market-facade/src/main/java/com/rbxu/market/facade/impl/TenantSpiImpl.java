@@ -16,6 +16,25 @@ public class TenantSpiImpl implements TenantSpi {
 
     @Override
     public TenantDTO getById(Long tenantId) {
+
+//        // 结构
+//        ProjectModifyDTO modifyDTO;
+//        OCSPResponse.SingleResponse response;
+//        ProjectModel projectModel;
+//        ProjectDO projectDO;
+//        TenantDTO tenantDTO;
+//
+//        //服务
+//        ProjectController controller;
+//        ProjectApplicationService projectApplicationService;
+//        ProjectDomainService projectDomainService;
+//        ProjectManager projectManager;
+//        ProjectMapper projectMapper;
+//        TenantSpi tenantSpi;
+//        TenantClient tenantClient;
+
+
+
         String nameByID = tenantClient.getNameByID(tenantId);
 
         TenantDTO tenantDTO = new TenantDTO();

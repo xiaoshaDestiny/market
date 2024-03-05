@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @MapperScan("com.rbxu.market.mapper")
-@ComponentScan({"com.rbxu.market", "com.alibaba.cola"})
+@ComponentScan(basePackages = {"com.rbxu.market.*"})
 @SpringBootApplication
 public class Application {
 

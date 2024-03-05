@@ -7,9 +7,10 @@ import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.model.TenantModel;
 import com.rbxu.market.domain.service.ProjectDomainService;
 import com.rbxu.market.domain.spi.TenantSpi;
+import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
 import com.rbxu.market.dto.ProjectModifyDTO;
-import com.rbxu.market.enums.ErrorCodeEnum;
-import com.rbxu.market.exception.ExceptionBuilder;
+import com.rbxu.market.domain.enums.ErrorCodeEnum;
+import com.rbxu.market.domain.exception.ExceptionBuilder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,6 +24,24 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
 
     @Override
     public SingleResponse<Boolean> createProject(ProjectModifyDTO projectModifyDTO) {
+        // 结构
+//        ProjectModifyDTO modifyDTO;
+//        SingleResponse response;
+//        ProjectModel projectModel;
+        // ProjectDO projectDO;
+//        TenantDTO tenantDTO;
+//
+//        //服务
+//        ProjectController controller;
+//        ProjectApplicationService projectApplicationService;
+//        ProjectDomainService projectDomainService;
+        ProjectManager projectManager;
+        //ProjectMapper projectMapper;
+        TenantSpi tenantSpi;
+//        TenantClient tenantClient;
+
+
+
         if (Objects.isNull(projectModifyDTO.getTenantId())) {
             throw ExceptionBuilder.build(ErrorCodeEnum.PARAM_IS_NULL);
         }

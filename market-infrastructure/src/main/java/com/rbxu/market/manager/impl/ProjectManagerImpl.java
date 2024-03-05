@@ -29,6 +29,22 @@ public class ProjectManagerImpl implements ProjectManager {
 
     @Override
     public Boolean create(ProjectModel projectModel) {
+//        // 结构
+//        ProjectModifyDTO modifyDTO;
+//        SingleResponse response;
+//        ProjectModel projectModel;
+//        ProjectDO projectDO;
+//        TenantDTO tenantDTO;
+//
+//        //服务
+//        ProjectController controller;
+//        ProjectApplicationService projectApplicationService;
+//        ProjectDomainService projectDomainService;
+//        ProjectManager projectManager;
+//        ProjectMapper projectMapper;
+//        TenantSpi tenantSpi;
+//        TenantClient tenantClient;
+
         ProjectDO createDO = ProjectConvert.toCreateDO(projectModel);
         // mock
         //return projectMapper.create(createDO);

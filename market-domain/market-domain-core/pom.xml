@@ -15,14 +15,9 @@
     <dependencies>
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
-            <artifactId>market-component-common</artifactId>
-            <scope>true</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.rbxu.cola.market</groupId>
             <artifactId>market-domain-adapter</artifactId>
-            <scope>true</scope>
         </dependency>
+
         <dependency>
             <groupId>com.rbxu.cola.market</groupId>
             <artifactId>market-infrastructure</artifactId>

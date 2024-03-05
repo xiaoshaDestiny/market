@@ -6,15 +6,14 @@ import com.rbxu.market.dto.ProjectModifyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
+
 @RestController
 public class ProjectController {
 
-    private final ProjectApplicationService projectApplicationService;
-
-    @Autowired
-    public ProjectController(ProjectApplicationService projectApplicationService) {
-        this.projectApplicationService = projectApplicationService;
-    }
+    @Resource
+    private ProjectApplicationService projectApplicationService;
 
 
     @GetMapping(value = "/helloworld")
@@ -24,7 +23,26 @@ public class ProjectController {
 
 
     @PostMapping(value = "/project")
-    public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO){
+    public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO) {
+
+//        // 结构
+//        ProjectModifyDTO modifyDTO;
+//        SingleResponse response;
+//        //ProjectModel projectModel;
+//        //ProjectDO projectDO;
+//        //TenantDTO tenantDTO;
+//
+//        //服务
+//        ProjectController controller;
+//        ProjectApplicationService projectApplicationService;
+//        ProjectDomainService projectDomainService;
+//        ProjectManager projectManager;
+//        ProjectMapper projectMapper;
+//        TenantSpi tenantSpi;
+//        TenantClient tenantClient;
+
+
+
         return projectApplicationService.createProject(projectModifyDTO);
     }
 }
