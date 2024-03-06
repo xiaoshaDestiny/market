@@ -1,4 +1,4 @@
-package com.rbxu.market.constant;
+package com.rbxu.market.domain.constant;
 
 /**
  * @author niexiaolong

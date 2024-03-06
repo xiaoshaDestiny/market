@@ -1,4 +1,4 @@
-package com.rbxu.market.enums;
+package com.rbxu.market.domain.enums;
 
 public enum ErrorCodeEnum {
     SYSTEM_ERROR("SYSTEM_ERROR", "系统异常!"),

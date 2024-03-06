@@ -1,4 +1,4 @@
-package com.rbxu.market.event;
+package com.rbxu.market.domain.event;
 
 import java.io.Serializable;
 

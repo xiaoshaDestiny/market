@@ -1,7 +1,7 @@
 package com.rbxu.market.facade.client;
 
-import com.rbxu.market.enums.ErrorCodeEnum;
-import com.rbxu.market.exception.ExceptionBuilder;
+import com.rbxu.market.domain.enums.ErrorCodeEnum;
+import com.rbxu.market.domain.exception.ExceptionBuilder;
 import com.squareup.okhttp.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
