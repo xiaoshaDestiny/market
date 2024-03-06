@@ -71,8 +71,8 @@ GitHub  [https://github.com/alibaba/COLA](https://github.com/alibaba/COLA)
 | **Infrastructure**  **Facade** | 基础设施和防腐结果在层级上是一致的，原因是：都是为领域模型提供支撑，支持的来源可以是二方服务（防腐），也可以是自身可维护的DB、Oss、ES、Redis等（基础设施） ![image.png](https://cdn.nlark.com/yuque/0/2024/png/2355110/1709707730731-ed8a50ee-fff6-43e0-be05-0cc56ac76e8e.png#averageHue=%231f2124&clientId=ufb11f149-e9ee-4&from=paste&height=451&id=u5d6f5729&originHeight=901&originWidth=819&originalType=binary&ratio=1&rotation=0&showTitle=false&size=62959&status=done&style=none&taskId=uabb087ad-b235-4d88-82c1-90f4fc3760f&title=&width=410) | 可见范围：上层不可见，基础设施不可见防腐的原始结果，防腐不可见Mappper![image.png](https://cdn.nlark.com/yuque/0/2024/png/2355110/1709707868851-67dfd8f7-cc00-4f8b-be1d-9f7ad5b0bade.png#averageHue=%231f2024&clientId=ufb11f149-e9ee-4&from=paste&height=809&id=udc0a10b5&originHeight=809&originWidth=1001&originalType=binary&ratio=1&rotation=0&showTitle=false&size=76136&status=done&style=none&taskId=ufa0931a7-f8c3-41a7-9e9b-3ea14e0c7bc&title=&width=1001) |
 
 
-# 四、结果展示（欢迎吐槽）
-对COLA安装后的项目依赖进行改造，github：[https://github.com/xiaoshaDestiny/market](https://github.com/xiaoshaDestiny/market)
+# 四、结果展示
+对COLA安装后的项目依赖进行改造
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/2355110/1709709682935-dd69b182-56f6-4c16-9ecc-ee1603abfe80.png#averageHue=%232f3236&clientId=ufb11f149-e9ee-4&from=paste&height=432&id=u9fc1d933&originHeight=432&originWidth=552&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27331&status=done&style=none&taskId=ub3b11e97-f869-4341-b700-4a0ad94ca7e&title=&width=552)
 
 | 模块名称 | 依赖项目内                                                                             | 依赖COLA                            |
