@@ -14,10 +14,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba.cola</groupId>
             <artifactId>cola-component-domain-starter</artifactId>
         </dependency>

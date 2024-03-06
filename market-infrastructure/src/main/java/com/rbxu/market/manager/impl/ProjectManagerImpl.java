@@ -3,6 +3,7 @@ package com.rbxu.market.manager.impl;
 import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.spi.TenantSpi;
+import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
 import com.rbxu.market.manager.convert.ProjectConvert;
 import com.rbxu.market.manager.entity.ProjectDO;
 import com.rbxu.market.mapper.ProjectMapper;
@@ -44,4 +45,37 @@ public class ProjectManagerImpl implements ProjectManager {
         }
         return null;
     }
+
+//
+//    /**
+//     * 测试服务、结构，是否可访问
+//     */
+//    private void testServiceDTO() {
+//        // API 入参
+//        ProjectCreateRequest request = new ProjectCreateRequest();
+//        // Rest 入参
+//        ProjectModifyDTO projectModifyDTO = new ProjectModifyDTO();
+//        // 领域模型
+//        ProjectModel projectModel = new ProjectModel();
+//        // 领域支撑模型
+//        TenantDTO tenantDTO = new TenantDTO();
+//        // DB模型
+//        ProjectDO projectDO = new ProjectDO();
+//
+//
+//        //API服务
+//        ProjectApi projectApi = new ProjectApi();
+//        // 应用服务
+//        ProjectApplicationService projectApplicationService = new ProjectApplicationService();
+//        // 领域服务
+//        ProjectDomainService domainService = new ProjectDomainService();
+//        // 基础设施服务
+//        ProjectManager projectManager;
+//        // MyBatis提供的DB服务
+//        ProjectMapper projectMapper;
+//        // 防腐接口-SPI服务
+//        TenantSpi tenantSpi;
+//        // 实际二方服务接口服务
+//        TenantClient tenantClient;
+//    }
 }

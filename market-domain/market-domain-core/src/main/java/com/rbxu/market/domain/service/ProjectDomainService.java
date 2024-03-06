@@ -4,7 +4,6 @@ import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
 import com.rbxu.market.domain.spi.TenantSpi;
-import com.rbxu.market.domain.enums.ErrorCodeEnum;
 import com.rbxu.market.facade.client.TenantClient;
 import com.rbxu.market.manager.entity.ProjectDO;
 import com.rbxu.market.mapper.ProjectMapper;
@@ -17,6 +16,7 @@ import java.util.Objects;
 public class ProjectDomainService {
     @Resource
     private ProjectManager projectManager;
+
     @Resource
     private TenantSpi tenantSpi;
 
