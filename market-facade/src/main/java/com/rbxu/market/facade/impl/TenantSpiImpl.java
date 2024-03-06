@@ -1,10 +1,7 @@
 package com.rbxu.market.facade.impl;
 
-import com.rbxu.market.domain.manager.ProjectManager;
-import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
 import com.rbxu.market.domain.spi.TenantSpi;
-import com.rbxu.market.dto.ProjectModifyDTO;
 import com.rbxu.market.facade.client.TenantClient;
 import org.springframework.stereotype.Service;
 
