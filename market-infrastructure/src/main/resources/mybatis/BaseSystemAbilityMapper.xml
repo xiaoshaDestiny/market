@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rbxu.market.mapper.BaseSystemAbilityMapper">
+    <resultMap type="com.rbxu.market.manager.entity.BaseSystemAbilityDO" id="resultMap">
+        <id property="id" column="id"/>
+        <result property="key" column="busness_key"/>
+        <result property="value" column="value"/>
+        <result property="type" column="type"/>
+        <result property="projectId" column="project_id"/>
+        <result property="creator" column="creator"/>
+        <result property="operator" column="operator"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModify" column="gmt_modify"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        id, busness_key, value, type, project_id, creator, operator, gmt_create, gmt_modify
+    </sql>
+
+
+    <select id="getByKey" resultType="com.rbxu.market.manager.entity.BaseSystemAbilityDO" resultMap="resultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM
+            base_system_ability
+        WHERE
+        busness_key = #{key}
+            and project_id = #{projectId}
+    </select>
+
+    <insert id="create" parameterType="com.rbxu.market.manager.entity.BaseSystemAbilityDO">
+        INSERT INTO
+            base_system_ability
+        (busness_key,value,type,project_id,creator,operator,gmt_create,gmt_modify)
+        VALUES
+        (#{key}, #{value}, #{type}, #{projectId}, #{creator}, #{operator}, now(), now())
+    </insert>
+
+    <delete id="deleteByKey">
+        DELETE FROM
+            base_system_ability
+        WHERE
+        busness_key = #{key}
+            and project_id = #{projectId}
+    </delete>
+
+
+    <delete id="delete" parameterType="com.rbxu.market.manager.entity.BaseSystemAbilityDO">
+        DELETE FROM
+        base_system_ability
+        WHERE
+        id =  #{id}
+        and busness_key = #{key}
+        and project_id = #{projectId}
+        and value = #{value}
+    </delete>
+
+    <update id="update">
+        UPDATE
+            base_system_ability
+        SET
+            value = #{value},
+            operator = #{operator},
+            gmt_modify = now()
+        WHERE
+        busness_key = #{key}
+            and project_id = #{projectId}
+    </update>
+
+</mapper>

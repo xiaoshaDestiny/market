@@ -5,6 +5,7 @@ import com.rbxu.market.application.ProjectApplicationService;
 import com.rbxu.market.domain.manager.ProjectManager;
 import com.rbxu.market.domain.model.ProjectModel;
 import com.rbxu.market.domain.model.TenantModel;
+import com.rbxu.market.domain.service.LockDemoDomain;
 import com.rbxu.market.domain.service.ProjectDomainService;
 import com.rbxu.market.domain.spi.TenantSpi;
 import com.rbxu.market.domain.spi.dto.tenant.TenantDTO;
@@ -21,6 +22,9 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
 
     @Resource
     private ProjectDomainService projectDomainService;
+
+    @Resource
+    private LockDemoDomain lockDemoDomain;
 
     @Override
     public SingleResponse<Boolean> createProject(ProjectModifyDTO projectModifyDTO) {
@@ -61,5 +65,10 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
             return SingleResponse.of(true);
         }
         return SingleResponse.of(false);
+    }
+
+    @Override
+    public SingleResponse<String> lock(String business) {
+        return SingleResponse.of(lockDemoDomain.dbLock(business));
     }
 }

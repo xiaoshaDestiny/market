@@ -5,6 +5,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <mappers>
-        <mapper resource="mybatis/customerModel-mapper.xml"/>
+        <mapper resource="mybatis/project-mapper.xml"/>
+        <mapper resource="mybatis/BaseSystemAbilityMapper.xml"/>
     </mappers>
 </configuration>

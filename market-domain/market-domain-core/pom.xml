@@ -41,5 +41,15 @@
             <groupId>com.alibaba.cola</groupId>
             <artifactId>cola-component-exception</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.rbxu.cola.market</groupId>
+            <artifactId>market-component-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

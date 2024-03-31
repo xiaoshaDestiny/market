@@ -22,6 +22,11 @@ public class ProjectController {
     }
 
 
+    @GetMapping(value = "/lock/{business}")
+    public SingleResponse<String>  lock(@PathVariable String business){
+        return projectApplicationService.lock(business);
+    }
+
     @PostMapping(value = "/project")
     public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO) {
 
