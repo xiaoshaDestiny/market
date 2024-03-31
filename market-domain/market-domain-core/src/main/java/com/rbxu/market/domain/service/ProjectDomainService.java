@@ -7,6 +7,9 @@ import com.rbxu.market.domain.spi.TenantSpi;
 import com.rbxu.market.manager.entity.ProjectDO;
 import com.rbxu.market.mapper.ProjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.rbxu.market.facade.client.TenantClient;
+import com.rbxu.market.manager.entity.ProjectDO;
+import com.rbxu.market.mapper.ProjectMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
