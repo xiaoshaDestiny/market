@@ -19,6 +19,7 @@
 
         <!--架构依赖-->
         <cola.components.version>4.3.2</cola.components.version>
+        <cola.statemachine.version>4.3.1</cola.statemachine.version>
         <spring-boot.version>2.7.2</spring-boot.version>
         <mybatis-starter.version>2.2.2</mybatis-starter.version>
 
@@ -60,7 +61,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -140,6 +140,12 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-starter.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-component-statemachine</artifactId>
+                <version>${cola.statemachine.version}</version>
+            </dependency>
+
 
             <!--工具包相关-->
             <!--Validation-->
