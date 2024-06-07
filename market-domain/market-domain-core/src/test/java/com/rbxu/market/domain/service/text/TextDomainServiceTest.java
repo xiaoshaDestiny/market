@@ -1,6 +1,5 @@
 package com.rbxu.market.domain.service.text;
 
-import com.google.common.collect.Lists;
 import com.rbxu.market.domain.model.TextTransJobDefine;
 import org.junit.Test;
 

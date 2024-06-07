@@ -37,7 +37,7 @@ public enum TextTransPairEnum {
      * @return
      */
     public static List<TextTransPairEnum> commonEnToCnSignTrans() {
-        return Lists.newArrayList(EN_TO_CN_COMMA, EN_TO_CN_SEMICOLON, EN_TO_CN_QUE, EN_TO_CN_EXCLAMATION);
+        return Lists.newArrayList(EN_TO_CN_COMMA, EN_TO_CN_SEMICOLON, EN_TO_CN_QUE, EN_TO_CN_COLON, EN_TO_CN_EXCLAMATION);
     }
 
 }
