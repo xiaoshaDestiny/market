@@ -6,7 +6,8 @@
     <property name="LOG_PATH" value="${user.home}/${PROJECT_NAME}/logs" />
     <property name="APPLICATION_LOG" value="${LOG_PATH}/application.log" />
     <property name="ERROR_LOG" value="${LOG_PATH}/error.log" />
-    <property name="DIGEST_LOG" value="${LOG_PATH}/digest.log" />
+    <property name="SELF_DIGEST_LOG" value="${LOG_PATH}/digest_self.log" />
+    <property name="HTTP_DIGEST_LOG" value="${LOG_PATH}/digest_http.log" />
 
     <!--控制台日志-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
@@ -54,22 +55,39 @@
 
 
     <!--耗时日志-->
-    <appender name="DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${DIGEST_LOG}</file>
+    <appender name="SELF_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${SELF_DIGEST_LOG}</file>
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${DIGEST_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>${SELF_DIGEST_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>7</maxHistory>
             <maxFileSize>50MB</maxFileSize>
             <totalSizeCap>20GB</totalSizeCap>
         </rollingPolicy>
     </appender>
 
+    <!--HTTP耗时日志-->
+    <appender name="HTTP_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${HTTP_DIGEST_LOG}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${HTTP_DIGEST_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>50MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
 
     <logger name="com.rbxu.market.aspect.digest.TimeCostDigest" level="INFO">
-        <appender-ref ref="DIGEST"/>
+        <appender-ref ref="SELF_DIGEST"/>
+    </logger>
+
+    <logger name="com.rbxu.market.config.HttpRequestCostInterceptor" level="INFO">
+        <appender-ref ref="HTTP_DIGEST"/>
     </logger>
 
     <root level="INFO">

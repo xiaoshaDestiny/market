@@ -84,6 +84,7 @@ public class TimeCostDigest {
         private Boolean success;
 
 
+
         public String toLog() {
             return LOG_SPLIT
                     + sourceIp + LOG_SPLIT

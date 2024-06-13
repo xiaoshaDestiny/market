@@ -23,10 +23,32 @@ public class ProjectController {
     @GetMapping(value = "/helloworld")
     public String helloWorld(){
         log.info("test hello world!");
-        log.error("error test !");
         return "Hello, welcome to COLA world!";
     }
 
+    @PostMapping(value = "/post")
+    public String post(){
+        log.info("test post!");
+        return "Hello, post";
+    }
+
+    @PutMapping(value = "/put")
+    public String put(){
+        log.info("test put!");
+        return "Hello, put";
+    }
+
+    @DeleteMapping(value = "/delete")
+    public String delete(){
+        log.info("test delete!");
+        return "Hello, delete";
+    }
+
+    @RequestMapping(value = "/exception")
+    public String exception(){
+        log.error("test exception!");
+        throw new IllegalArgumentException("方法未实现");
+    }
 
     @PostMapping(value = "/project")
     public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO){
