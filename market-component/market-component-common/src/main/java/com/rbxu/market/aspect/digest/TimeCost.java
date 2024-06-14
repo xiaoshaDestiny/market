@@ -6,4 +6,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TimeCost {
 
+    String IDENTIFY_DEFAULT = "EMPTY";
+
+    String businessIdentify() default IDENTIFY_DEFAULT;
+
 }

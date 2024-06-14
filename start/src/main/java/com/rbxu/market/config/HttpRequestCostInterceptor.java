@@ -1,6 +1,6 @@
 package com.rbxu.market.config;
 
-import com.rbxu.market.aspect.digest.CostDigestDTO;
+import com.rbxu.market.aspect.digest.dto.CostDigestDTO;
 import com.rbxu.market.constant.CommonConstant;
 import com.rbxu.market.util.DateUtil;
 import com.rbxu.market.util.NetUtil;

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@TimeCost
 public class ProjectController {
 
     private final ProjectApplicationService projectApplicationService;
@@ -21,31 +20,31 @@ public class ProjectController {
     }
 
     @GetMapping(value = "/helloworld")
-    public String helloWorld(){
+    public SingleResponse<Boolean> helloWorld(){
         log.info("test hello world!");
-        return "Hello, welcome to COLA world!";
+        return projectApplicationService.mockBusiness();
     }
 
     @PostMapping(value = "/post")
-    public String post(){
+    public SingleResponse<Boolean> post(){
         log.info("test post!");
-        return "Hello, post";
+        return projectApplicationService.mockExecutorBusiness();
     }
 
     @PutMapping(value = "/put")
-    public String put(){
+    public SingleResponse<Boolean> put(){
         log.info("test put!");
-        return "Hello, put";
+        return projectApplicationService.mockExecutorBusiness();
     }
 
     @DeleteMapping(value = "/delete")
-    public String delete(){
+    public SingleResponse<Boolean> delete(){
         log.info("test delete!");
-        return "Hello, delete";
+        return projectApplicationService.mockBusiness();
     }
 
     @RequestMapping(value = "/exception")
-    public String exception(){
+    public SingleResponse<Boolean> exception(){
         log.error("test exception!");
         throw new IllegalArgumentException("方法未实现");
     }

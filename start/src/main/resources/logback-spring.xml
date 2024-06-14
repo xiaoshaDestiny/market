@@ -1,18 +1,28 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
 
-    <!--参数-->
+    <!--定义日志文件位置-->
     <property name="PROJECT_NAME" value="market" />
     <property name="LOG_PATH" value="${user.home}/${PROJECT_NAME}/logs" />
+    <!--定义日志文件-->
     <property name="APPLICATION_LOG" value="${LOG_PATH}/application.log" />
     <property name="ERROR_LOG" value="${LOG_PATH}/error.log" />
     <property name="SELF_DIGEST_LOG" value="${LOG_PATH}/digest_self.log" />
     <property name="HTTP_DIGEST_LOG" value="${LOG_PATH}/digest_http.log" />
+    <!--定义日志格式-->
+    <!--
+    <property name="LOG_SPLIT" value=" &#45;&#45; "
+    <property name="FILE_LOG_PATTERN_SELF" value="${FILE_LOG_PATTERN_SELF:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- }-&#45;&#45;[%t] %logger : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="CONSOLE_LOG_PATTERN_SELF" value="${CONSOLE_LOG_PATTERN_SELF:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}${LOG_SPLIT}%clr(${LOG_LEVEL_PATTERN:-%p})${LOG_SPLIT}%clr(${PID:- }){magenta}%clr(${LOG_SPLIT}){faint}%clr([%t]){faint}${LOG_SPLIT}%clr(%logger){cyan}%clr(:){faint}%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    -->
+    <property name="CONSOLE_LOG_PATTERN_SELF" value="${CONSOLE_LOG_PATTERN_SELF:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="FILE_LOG_PATTERN_SELF" value="${FILE_LOG_PATTERN_SELF:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %logger : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
 
     <!--控制台日志-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <pattern>${CONSOLE_LOG_PATTERN_SELF}</pattern>
             <charset>utf8</charset>
         </encoder>
     </appender>
@@ -21,7 +31,7 @@
     <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${APPLICATION_LOG}</file>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${APPLICATION_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -34,10 +44,11 @@
         </filter>
     </appender>
 
+    <!--错误日志-->
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${ERROR_LOG}</file>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
             <charset>utf-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -53,12 +64,11 @@
         </filter>
     </appender>
 
-
-    <!--耗时日志-->
+    <!--自定义记录的耗时日志-->
     <appender name="SELF_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${SELF_DIGEST_LOG}</file>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${SELF_DIGEST_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -72,7 +82,7 @@
     <appender name="HTTP_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${HTTP_DIGEST_LOG}</file>
         <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${HTTP_DIGEST_LOG}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -82,7 +92,7 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="com.rbxu.market.aspect.digest.TimeCostDigest" level="INFO">
+    <logger name="com.rbxu.market.aspect.digest.TimeCostAspect" level="INFO">
         <appender-ref ref="SELF_DIGEST"/>
     </logger>
 

@@ -10,4 +10,11 @@ public interface ProjectApplicationService {
      */
     SingleResponse<Boolean> createProject(ProjectModifyDTO projectModifyDTO);
 
+
+
+    SingleResponse<Boolean> mockBusiness();
+
+
+    SingleResponse<Boolean> mockExecutorBusiness();
+
 }
