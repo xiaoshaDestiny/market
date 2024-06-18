@@ -22,7 +22,7 @@ public class ProjectController {
     @GetMapping(value = "/helloworld")
     public SingleResponse<Boolean> helloWorld(){
         log.info("test hello world!");
-        return projectApplicationService.mockBusiness();
+        return projectApplicationService.mockBusiness(1L,"1");
     }
 
     @PostMapping(value = "/post")
@@ -40,7 +40,7 @@ public class ProjectController {
     @DeleteMapping(value = "/delete")
     public SingleResponse<Boolean> delete(){
         log.info("test delete!");
-        return projectApplicationService.mockBusiness();
+        return projectApplicationService.mockBusiness(2L,"2");
     }
 
     @RequestMapping(value = "/exception")

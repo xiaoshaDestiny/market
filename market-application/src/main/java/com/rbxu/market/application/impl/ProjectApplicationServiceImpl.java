@@ -10,6 +10,7 @@ import com.rbxu.market.domain.service.ProjectDomainService;
 import com.rbxu.market.dto.ProjectModifyDTO;
 import com.rbxu.market.domain.enums.ErrorCodeEnum;
 import com.rbxu.market.domain.exception.ExceptionBuilder;
+import com.yomahub.tlog.core.annotation.TLogAspect;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -65,8 +66,9 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
     }
 
     @TimeCost(businessIdentify = "MOCK")
+    @TLogAspect(value = {"id","name"},pattern = "<-{}->",joint = "_")
     @Override
-    public SingleResponse<Boolean> mockBusiness() {
+    public SingleResponse<Boolean> mockBusiness(Long id, String name) {
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {

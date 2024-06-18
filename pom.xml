@@ -42,9 +42,7 @@
         <apache.poi.ooxml.version>4.0.1</apache.poi.ooxml.version>
         <apache.commons.configuration.version>1.10</apache.commons.configuration.version>
         <fastjson.version>1.2.83</fastjson.version>
-
-
-
+        <tlog.version>1.5.2</tlog.version>
         <easyexcel.version>2.2.8</easyexcel.version>
 
     </properties>
@@ -265,6 +263,13 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
+            <dependency>
+                <groupId>com.yomahub</groupId>
+                <artifactId>tlog-all-spring-boot-starter</artifactId>
+                <version>${tlog.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

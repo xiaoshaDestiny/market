@@ -1,5 +1,7 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <contextListener class="com.yomahub.tlog.core.enhance.logback.TLogLogbackTTLMdcListener"/>
+
 
     <!--定义日志文件位置-->
     <property name="PROJECT_NAME" value="market" />
@@ -15,8 +17,8 @@
     <property name="FILE_LOG_PATTERN_SELF" value="${FILE_LOG_PATTERN_SELF:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- }-&#45;&#45;[%t] %logger : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     <property name="CONSOLE_LOG_PATTERN_SELF" value="${CONSOLE_LOG_PATTERN_SELF:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint}${LOG_SPLIT}%clr(${LOG_LEVEL_PATTERN:-%p})${LOG_SPLIT}%clr(${PID:- }){magenta}%clr(${LOG_SPLIT}){faint}%clr([%t]){faint}${LOG_SPLIT}%clr(%logger){cyan}%clr(:){faint}%m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     -->
-    <property name="CONSOLE_LOG_PATTERN_SELF" value="${CONSOLE_LOG_PATTERN_SELF:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
-    <property name="FILE_LOG_PATTERN_SELF" value="${FILE_LOG_PATTERN_SELF:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %logger : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="CONSOLE_LOG_PATTERN_SELF" value="${CONSOLE_LOG_PATTERN_SELF:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr(%X{tl}) %clr([%t]){faint} %clr(%logger){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="FILE_LOG_PATTERN_SELF" value="${FILE_LOG_PATTERN_SELF:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %X{tl} %logger : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
 
     <!--控制台日志-->
@@ -30,7 +32,7 @@
     <!--应用日志-->
     <appender name="APPLICATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${APPLICATION_LOG}</file>
-        <encoder>
+        <encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">
             <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -47,7 +49,7 @@
     <!--错误日志-->
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${ERROR_LOG}</file>
-        <encoder>
+        <encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">
             <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
             <charset>utf-8</charset>
         </encoder>
@@ -67,7 +69,7 @@
     <!--自定义记录的耗时日志-->
     <appender name="SELF_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${SELF_DIGEST_LOG}</file>
-        <encoder>
+        <encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">
             <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -81,7 +83,7 @@
     <!--HTTP耗时日志-->
     <appender name="HTTP_DIGEST" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${HTTP_DIGEST_LOG}</file>
-        <encoder>
+        <encoder class="com.yomahub.tlog.core.enhance.logback.AspectLogbackEncoder">
             <pattern>${FILE_LOG_PATTERN_SELF}</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
