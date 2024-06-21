@@ -4,12 +4,34 @@ import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 沙雕排序算法
+ */
 @Slf4j
-public class SleepSortTest {
+public class SandCarvingSortingTest {
 
+
+    /**
+     * 猴子排序法：进来就检查是不是有序的，不是的话随机打乱，再检查
+     * 理论依据：一只猴子随机敲打打字机键盘，如果时间足够长，总是能打出特定的文本，比如莎士比亚全集。
+     * 最好执行时间是O(1), 最坏执行时间是地球爆炸
+     */
+    @Test
+    public void testMonkeySort() {
+
+
+    }
+
+
+    /**
+     * 睡觉排序法：进来就睡觉，谁先醒谁小
+     * (1) 搞不定负数
+     * (2) 输入数据很相近时会有误差
+     * (3) 输入数据很多时，这些线程不能看作是同时启动的
+     * (4) 只能从小到大排序
+     */
     @Test
     public void testSleepSort() throws InterruptedException {
         List<Integer> waitSort = Lists.newArrayList(4, 7, 2, 10, 0, 1);
