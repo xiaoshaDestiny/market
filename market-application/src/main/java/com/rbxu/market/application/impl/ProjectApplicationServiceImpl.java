@@ -66,7 +66,6 @@ public class ProjectApplicationServiceImpl implements ProjectApplicationService 
     }
 
     @TimeCost(businessIdentify = "MOCK")
-    @TLogAspect(value = {"id","name"},pattern = "<-{}->",joint = "_")
     @Override
     public SingleResponse<Boolean> mockBusiness(Long id, String name) {
         try {

@@ -38,7 +38,7 @@ public class TimeCostAspect {
                 .identify(Objects.isNull(timeCost) ? TimeCost.IDENTIFY_DEFAULT : timeCost.businessIdentify())
                 .className(className)
                 .methodName(methodName)
-                .startTime(DateUtil.formatOrElseEmpty(invokeStart, CommonConstant.DATETIME_FORMATTER))
+                .startTime(DateUtil.formatOrElseEmpty(invokeStart, CommonConstant.TIME_SECOND_FORMATTER))
                 .build();
         Object result;
         try {
@@ -49,7 +49,7 @@ public class TimeCostAspect {
             throw e;
         } finally {
             long invokeEnd = System.currentTimeMillis();
-            digest.setEndTime(DateUtil.formatOrElseEmpty(invokeEnd, CommonConstant.DATETIME_FORMATTER));
+            digest.setEndTime(DateUtil.formatOrElseEmpty(invokeEnd, CommonConstant.TIME_SECOND_FORMATTER));
             digest.setCost(invokeEnd - invokeStart);
             log.info(digest.toTimeCostLog());
         }

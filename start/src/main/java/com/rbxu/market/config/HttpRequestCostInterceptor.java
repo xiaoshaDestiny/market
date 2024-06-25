@@ -43,8 +43,8 @@ public class HttpRequestCostInterceptor implements HandlerInterceptor {
                     .handleIp(NetUtil.currentIpOrElseEmpty())
                     .requestURL(request.getRequestURI())
                     .requestType(requestType)
-                    .startTime(DateUtil.formatOrElseEmpty(REQUEST_COST.get(), CommonConstant.DATETIME_FORMATTER))
-                    .endTime(DateUtil.formatOrElseEmpty(System.currentTimeMillis(), CommonConstant.DATETIME_FORMATTER))
+                    .startTime(DateUtil.formatOrElseEmpty(REQUEST_COST.get(), CommonConstant.TIME_SECOND_FORMATTER))
+                    .endTime(DateUtil.formatOrElseEmpty(System.currentTimeMillis(), CommonConstant.TIME_SECOND_FORMATTER))
                     .cost(cost)
                     .success(Objects.isNull(ex))
                     .build();
