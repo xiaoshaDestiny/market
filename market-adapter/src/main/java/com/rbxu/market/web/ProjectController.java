@@ -1,55 +1,56 @@
 package com.rbxu.market.web;
 
 import com.alibaba.cola.dto.SingleResponse;
-import com.rbxu.market.api.ProjectApi;
 import com.rbxu.market.application.ProjectApplicationService;
+import com.rbxu.market.aspect.digest.TimeCost;
 import com.rbxu.market.dto.ProjectModifyDTO;
-import com.rbxu.market.dto.project.ProjectCreateRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-
-
+@Slf4j
 @RestController
 public class ProjectController {
 
-    @Resource
-    private ProjectApplicationService projectApplicationService;
+    private final ProjectApplicationService projectApplicationService;
 
-
-    @GetMapping(value = "/helloworld")
-    public String helloWorld(){
-        return "Hello, welcome to COLA world!";
+    @Autowired
+    public ProjectController(ProjectApplicationService projectApplicationService) {
+        this.projectApplicationService = projectApplicationService;
     }
 
+    @GetMapping(value = "/helloworld")
+    public SingleResponse<Boolean> helloWorld(){
+        log.info("test hello world!");
+        return projectApplicationService.mockBusiness(1L,"1");
+    }
 
-    @GetMapping(value = "/lock/{business}")
-    public SingleResponse<String>  lock(@PathVariable String business){
-        return projectApplicationService.lock(business);
+    @PostMapping(value = "/post")
+    public SingleResponse<Boolean> post(){
+        log.info("test post!");
+        return projectApplicationService.mockExecutorBusiness();
+    }
+
+    @PutMapping(value = "/put")
+    public SingleResponse<Boolean> put(){
+        log.info("test put!");
+        return projectApplicationService.mockExecutorBusiness();
+    }
+
+    @DeleteMapping(value = "/delete")
+    public SingleResponse<Boolean> delete(){
+        log.info("test delete!");
+        return projectApplicationService.mockBusiness(2L,"2");
+    }
+
+    @RequestMapping(value = "/exception")
+    public SingleResponse<Boolean> exception(){
+        log.error("test exception!");
+        throw new IllegalArgumentException("方法未实现");
     }
 
     @PostMapping(value = "/project")
-    public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO) {
-
-//        // 结构
-//        ProjectModifyDTO modifyDTO;
-//        SingleResponse response;
-//        //ProjectModel projectModel;
-//        //ProjectDO projectDO;
-//        //TenantDTO tenantDTO;
-//
-//        //服务
-//        ProjectController controller;
-//        ProjectApplicationService projectApplicationService;
-//        ProjectDomainService projectDomainService;
-//        ProjectManager projectManager;
-//        ProjectMapper projectMapper;
-//        TenantSpi tenantSpi;
-//        TenantClient tenantClient;
-
-
-
+    public SingleResponse<Boolean> createProject(@RequestBody ProjectModifyDTO projectModifyDTO){
         return projectApplicationService.createProject(projectModifyDTO);
     }
 }

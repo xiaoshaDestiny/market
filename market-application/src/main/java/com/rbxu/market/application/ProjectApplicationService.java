@@ -11,6 +11,9 @@ public interface ProjectApplicationService {
     SingleResponse<Boolean> createProject(ProjectModifyDTO projectModifyDTO);
 
 
-    SingleResponse<String> lock(String business);
+    SingleResponse<Boolean> mockBusiness(Long id, String name);
+
+
+    SingleResponse<Boolean> mockExecutorBusiness();
 
 }
