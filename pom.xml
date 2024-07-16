@@ -10,7 +10,7 @@
     <name>market</name>
 
     <properties>
-        <project.version>2024-03-05-DEV</project.version>
+        <project.version>2024-07-16-DEV</project.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,7 +44,8 @@
         <fastjson.version>1.2.83</fastjson.version>
         <tlog.version>1.5.2</tlog.version>
         <easyexcel.version>2.2.8</easyexcel.version>
-
+        <springfox.swagger2>2.9.2</springfox.swagger2>
+        <knife4j.starter>2.0.9</knife4j.starter>
     </properties>
 
     <modules>
@@ -264,10 +265,30 @@
                 </exclusions>
             </dependency>
 
+            <!--Tlog文档 https://tlog.yomahub.com/pages/5b7bd2/-->
             <dependency>
                 <groupId>com.yomahub</groupId>
                 <artifactId>tlog-all-spring-boot-starter</artifactId>
                 <version>${tlog.version}</version>
+            </dependency>
+
+            <!-- swagger2 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2}</version>
+            </dependency>
+            <!-- swagger-ui -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger2}</version>
+            </dependency>
+            <!-- knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.starter}</version>
             </dependency>
 
         </dependencies>

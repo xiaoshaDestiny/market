@@ -31,24 +31,26 @@ public class HttpRequestCostInterceptor implements HandlerInterceptor {
             long endTime = System.currentTimeMillis();
             Long startTime = REQUEST_COST.get();
             Long cost = Objects.isNull(startTime) ? -1L : endTime - startTime;
-            HandlerMethod handlerMethod = (HandlerMethod) handler;
-            String className = handlerMethod.getBeanType().getSimpleName();
-            String requestType = request.getMethod();
-            String methodName = handlerMethod.getMethod().getName();
-            CostDigestDTO digest = CostDigestDTO.builder()
-                    .identify("HTTP")
-                    .className(className)
-                    .methodName(methodName)
-                    .requestIp(getRequestIpAddr(request))
-                    .handleIp(NetUtil.currentIpOrElseEmpty())
-                    .requestURL(request.getRequestURI())
-                    .requestType(requestType)
-                    .startTime(DateUtil.formatOrElseEmpty(REQUEST_COST.get(), CommonConstant.TIME_SECOND_FORMATTER))
-                    .endTime(DateUtil.formatOrElseEmpty(System.currentTimeMillis(), CommonConstant.TIME_SECOND_FORMATTER))
-                    .cost(cost)
-                    .success(Objects.isNull(ex))
-                    .build();
-            log.info(digest.toHttpCostLog());
+            if (handler instanceof HandlerMethod) {
+                HandlerMethod handlerMethod = (HandlerMethod) handler;
+                String className = handlerMethod.getBeanType().getSimpleName();
+                String requestType = request.getMethod();
+                String methodName = handlerMethod.getMethod().getName();
+                CostDigestDTO digest = CostDigestDTO.builder()
+                        .identify("HTTP")
+                        .className(className)
+                        .methodName(methodName)
+                        .requestIp(getRequestIpAddr(request))
+                        .handleIp(NetUtil.currentIpOrElseEmpty())
+                        .requestURL(request.getRequestURI())
+                        .requestType(requestType)
+                        .startTime(DateUtil.formatOrElseEmpty(REQUEST_COST.get(), CommonConstant.TIME_SECOND_FORMATTER))
+                        .endTime(DateUtil.formatOrElseEmpty(System.currentTimeMillis(), CommonConstant.TIME_SECOND_FORMATTER))
+                        .cost(cost)
+                        .success(Objects.isNull(ex))
+                        .build();
+                log.info(digest.toHttpCostLog());
+            }
         } finally {
             REQUEST_COST.remove();
         }
