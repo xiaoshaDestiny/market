@@ -20,7 +20,7 @@ public class CommonConstant {
 
     public static final String CN_SEMICOLON = "；";
 
-    public static final String EN_SEMICOLON = "；";
+    public static final String EN_SEMICOLON = ";";
 
     public static final String EN_COLON = ":";
 
