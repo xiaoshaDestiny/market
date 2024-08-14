@@ -1,11 +1,12 @@
-package com.rbxu.market.domain.enums;
+package com.rbxu.cola.market.textReplace;
 
 import com.google.common.collect.Lists;
 import lombok.Getter;
 
 import java.util.List;
 
-import static com.rbxu.market.domain.constant.CommonConstant.*;
+import static com.rbxu.cola.market.textReplace.CommonConstant.*;
+
 
 @Getter
 public enum TextTransPairEnum {

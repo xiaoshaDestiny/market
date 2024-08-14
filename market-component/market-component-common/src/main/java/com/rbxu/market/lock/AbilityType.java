@@ -1,5 +1,8 @@
 package com.rbxu.market.lock;
 
+import lombok.Getter;
+
+@Getter
 public enum AbilityType {
 
     LOCK("分布式锁"),
@@ -13,9 +16,5 @@ public enum AbilityType {
         this.desc = desc;
     }
 
-
-    public String getDesc() {
-        return desc;
-    }
 
 }

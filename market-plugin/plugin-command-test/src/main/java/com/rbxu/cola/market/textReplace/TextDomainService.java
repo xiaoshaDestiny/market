@@ -1,14 +1,10 @@
-package com.rbxu.market.domain.service.text;
+package com.rbxu.cola.market.textReplace;
 
 import com.google.common.collect.Lists;
-import com.rbxu.market.domain.model.TextTransJobDefine;
-import org.apache.commons.collections.CollectionUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -16,9 +12,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class TextDomainService {
+
+    private static final Charset UTF_8_CHARSET = StandardCharsets.UTF_8;
 
     public static void transAndWriteToOutFile(TextTransJobDefine job) {
         List<String> strList = commonTrans(job);
@@ -34,7 +33,7 @@ public class TextDomainService {
     public static List<String> commonTrans(TextTransJobDefine job) {
         List<String> after = Lists.newArrayList();
         List<String> before = getTextContentElseEmpty(job.getFileInputPath());
-        if (CollectionUtils.isEmpty(before)) {
+        if (Objects.isNull(before) || before.isEmpty()) {
             return after;
         }
         for (String content : before) {
@@ -54,10 +53,9 @@ public class TextDomainService {
             return result;
         }
         Path path = Paths.get(filePath);
-        Charset charset = StandardCharsets.UTF_8;
 
         try {
-            BufferedReader reader = Files.newBufferedReader(path, charset);
+            BufferedReader reader = Files.newBufferedReader(path, UTF_8_CHARSET);
             while (true) {
                 String line = reader.readLine();
                 if (StringUtils.isNotBlank(line)) {
@@ -69,6 +67,7 @@ public class TextDomainService {
         } catch (IOException e) {
             return result;
         }
+        result.forEach(System.out::println);
         return result;
     }
 
@@ -76,7 +75,7 @@ public class TextDomainService {
     public static void whiteToFile(List<String> contents, String outFilePath) {
         File file = new File(outFilePath);
         try {
-            FileWriter writer = new FileWriter(file);
+            Writer writer = new OutputStreamWriter(new FileOutputStream(file), UTF_8_CHARSET);
             for (String content : contents) {
                 writer.write(content);
             }

@@ -1,5 +1,6 @@
 package com.rbxu.market.facade.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.rbxu.market.domain.enums.ErrorCodeEnum;
 import com.rbxu.market.domain.exception.ExceptionBuilder;
@@ -18,6 +19,10 @@ public class PrecessTest {
     private static final String POST = "POST";
     private static final String GET = "GET";
 
+    @Test
+    public void precessTest_null() {
+        String jsonString = JSON.toJSONString(null);
+    }
     @Test
     public void precessTest() {
         List<String> addressList = Lists.newArrayList(

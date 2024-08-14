@@ -60,6 +60,7 @@
         <module>market-infrastructure</module>
         <module>market-facade</module>
         <module>start</module>
+        <module>market-plugin</module>
     </modules>
 
     <dependencies>

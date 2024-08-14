@@ -1,7 +1,5 @@
-package com.rbxu.market.domain.model;
+package com.rbxu.cola.market.textReplace;
 
-import com.rbxu.market.domain.constant.CommonConstant;
-import com.rbxu.market.domain.enums.TextTransPairEnum;
 import lombok.Builder;
 import lombok.Data;
 
