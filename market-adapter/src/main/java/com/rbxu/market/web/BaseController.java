@@ -2,7 +2,7 @@ package com.rbxu.market.web;
 
 import com.alibaba.cola.dto.SingleResponse;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.rbxu.market.aspect.digest.TimeCost;
+import com.rbxu.market.aspect.TimeCost;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

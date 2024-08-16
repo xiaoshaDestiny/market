@@ -94,7 +94,7 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="com.rbxu.market.aspect.digest.TimeCostAspect" level="INFO">
+    <logger name="com.rbxu.market.aspect.TimeCostAspect" level="INFO">
         <appender-ref ref="SELF_DIGEST"/>
     </logger>
 

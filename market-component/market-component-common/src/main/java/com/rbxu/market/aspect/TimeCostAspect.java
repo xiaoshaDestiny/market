@@ -1,6 +1,5 @@
-package com.rbxu.market.aspect.digest;
+package com.rbxu.market.aspect;
 
-import com.rbxu.market.aspect.digest.dto.CostDigestDTO;
 import com.rbxu.market.constant.CommonConstant;
 import com.rbxu.market.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +21,7 @@ import java.util.Objects;
 @Slf4j
 public class TimeCostAspect {
 
-    @Pointcut(value = "@annotation(com.rbxu.market.aspect.digest.TimeCost) || @within(com.rbxu.market.aspect.digest.TimeCost)")
+    @Pointcut(value = "@annotation(com.rbxu.market.aspect.TimeCost) || @within(com.rbxu.market.aspect.TimeCost)")
     public void timeCostDigest() {}
 
 

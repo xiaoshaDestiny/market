@@ -1,4 +1,4 @@
-package com.rbxu.market.aspect.digest.dto;
+package com.rbxu.market.aspect;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.rbxu.market.aspect.digest;
+package com.rbxu.market.aspect;
 import java.lang.annotation.*;
 
 @Documented

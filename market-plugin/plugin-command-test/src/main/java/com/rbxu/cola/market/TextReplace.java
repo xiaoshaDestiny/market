@@ -1,7 +1,6 @@
 package com.rbxu.cola.market;
 
 import com.google.common.collect.Lists;
-import com.rbxu.cola.market.textReplace.CommonConstant;
 import com.rbxu.cola.market.textReplace.TextDomainService;
 import com.rbxu.cola.market.textReplace.TextTransJobDefine;
 
@@ -24,7 +23,7 @@ public class TextReplace {
         System.out.println();
 
 
-        String res = String.join(CommonConstant.NEXT_LINE_STR, strList);
+        String res = String.join(System.lineSeparator(), strList);
         System.out.println("text-replace after multi-line is: ");
         System.out.println(res);
         System.out.println();
